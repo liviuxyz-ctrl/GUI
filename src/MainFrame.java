@@ -101,9 +101,16 @@ public class MainFrame
 
         // Clear the color buffer.
         gl.glClear(GL.GL_COLOR_BUFFER_BIT);
+        gl.glPointSize(5.0f); // Set point size to 5 pixels
 
 
+        square(gl);
+
+    }
+
+    private static void square(GL2 gl) {
         gl.glBegin(GL2.GL_POINTS);
+
         // Set the vertex color to Red.
         gl.glColor3f(1.0f, 0.0f, 0.0f);
         gl.glVertex2f(0.2f, 0.2f);
@@ -117,7 +124,6 @@ public class MainFrame
         gl.glColor3f(1.0f, 1.0f, 1.0f);
         gl.glVertex2f(0.4f, 0.4f);
         gl.glEnd();
-
     }
 
     public void reshape(GLAutoDrawable canvas, int left, int top, int width, int height)

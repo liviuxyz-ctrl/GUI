@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="865f25e2-1d08-4b26-8618-51e982df3cc5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/qaplug_profiles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/qaplug_profiles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,12 +47,14 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-19" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="untitled" />
       <method v="2">
@@ -78,7 +78,7 @@
       <workItem from="1678352983812" duration="579000" />
       <workItem from="1678353608133" duration="3464000" />
       <workItem from="1678664422972" duration="753000" />
-      <workItem from="1678818076590" duration="3259000" />
+      <workItem from="1678818076590" duration="3908000" />
     </task>
     <servers />
   </component>
