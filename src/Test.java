@@ -1,5 +1,7 @@
-public class Test {
-    public static void main(String[] arguments) {
+public class Test
+{
+    public static void main(String[] arguments)
+    {
         new MainFrame();
     }
 }

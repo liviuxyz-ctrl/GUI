@@ -9,21 +9,30 @@ import com.jogamp.opengl.GL2;
 import javax.swing.*;
 import java.awt.*;
 
-
 public class MainFrame
         extends JFrame
         implements GLEventListener
 {
-    double equation[] = { 1f, 1f, 1f, 1f};
+
+    public MainFrame()
+    {
+        super("Java OpenGL");
+
+        this.setLayout(new BorderLayout());
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        this.setSize(800, 600);
+
+        // This method will be explained later
+        this.initializeJogl();
+
+        this.setVisible(true);
+    }
+
     public Animator animator;
 
     private void initializeJogl()
     {
-        this.animator = new Animator();
-
-        this.animator.add(this.canvas);
-
-        this.animator.start();
 
         // Obtaining a reference to the default GL profile
         GLProfile glProfile = GLProfile.getDefault();
@@ -42,7 +51,18 @@ public class MainFrame
 
         // Adding an OpenGL event listener to the canvas.
         this.canvas.addGLEventListener(this);
+
+        this.animator = new Animator();
+
+        this.animator.add(this.canvas);
+
+        this.animator.start();
     }
+
+
+    public GLCanvas canvas;
+    double equation[] = { 1f, 1f, 1f, 1f};
+
     public void init(GLAutoDrawable canvas)
     {
         // Obtain the GL instance associated with the canvas.
@@ -58,25 +78,9 @@ public class MainFrame
         gl.glLoadIdentity();
 
         // Set the projection to be orthographic.
-        // It could have been as well chosen to be perspective.
+        // It could have been as well-chosen to be perspective.
         // Select the view volume to be x in the range of 0 to 1, y from 0 to 1 and z from -1 to 1.
         gl.glOrtho(0, 1, 0, 1, -1, 1);
-
-    }
-    private GLCanvas canvas;
-    public MainFrame()
-    {
-        super("Java OpenGL");
-
-        this.setLayout(new BorderLayout());
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        this.setSize(800, 600);
-
-        // This method will be explained later
-        // this.initializeJogl();
-
-        this.setVisible(true);
     }
 
     @Override
@@ -84,19 +88,35 @@ public class MainFrame
 
     }
 
-
     public void display(GLAutoDrawable canvas)
     {
-        // Retrieve a reference to a GL object. We need it because it contains all the useful OGL methods.
+
         GL2 gl = canvas.getGL().getGL2();
 
         // Each time the scene is redrawn we clear the color buffers which is perceived by the user as clearing the scene.
-        // Clear the color buffer
+
+        // Set the color buffer to be filled with the color black when cleared.
+        // It can be defined in the init function (method) also.
+        gl.glClearColor(0.0f, 0.0f, 0.0f, 0);
+
+        // Clear the color buffer.
         gl.glClear(GL.GL_COLOR_BUFFER_BIT);
 
 
-        // Forcing the scene to be rendered.
-        gl.glFlush();
+        gl.glBegin(GL2.GL_POINTS);
+        // Set the vertex color to Red.
+        gl.glColor3f(1.0f, 0.0f, 0.0f);
+        gl.glVertex2f(0.2f, 0.2f);
+        // Set the vertex color to Green.
+        gl.glColor3f(0.0f, 1.0f, 0.0f);
+        gl.glVertex2f(0.4f, 0.2f);
+        // Set the vertex color to Blue.
+        gl.glColor3f(0.0f, 0.0f, 1.0f);
+        gl.glVertex2f(0.2f, 0.4f);
+        // Set the vertex color to White.
+        gl.glColor3f(1.0f, 1.0f, 1.0f);
+        gl.glVertex2f(0.4f, 0.4f);
+        gl.glEnd();
 
     }
 
@@ -125,9 +145,9 @@ public class MainFrame
         // Return to the Modelview matrix.
         gl.glMatrixMode(GLMatrixFunc.GL_MODELVIEW);
     }
+
     public void displayChanged(GLAutoDrawable canvas, boolean modeChanged, boolean deviceChanged)
     {
         return;
     }
-
 }
